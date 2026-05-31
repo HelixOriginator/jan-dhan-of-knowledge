@@ -1,0 +1,1920 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jan-Dhan of Knowledge: India's first digital and physical Knowledge Bank for every village. Preserving local wisdom, empowering generations.">
+    <meta name="keywords" content="knowledge bank, rural innovation, village wisdom, grassroots innovation, digital India, knowledge preservation">
+    <meta name="author" content="Kallol Chakrabarti, Global Independent Researcher">
+    <title>Jan-Dhan of Knowledge | Village Knowledge Bank</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            /* Dark Mode Primary Palette */
+            --bg-primary: #0a0a14;
+            --bg-secondary: #121226;
+            --bg-tertiary: #1a1a3a;
+            --bg-card: #1e1e3f;
+            --bg-elevated: #252550;
+            
+            /* Accent Colors - Indian Tricolor Inspired */
+            --saffron: #FF9933;
+            --saffron-light: #FFB366;
+            --saffron-dark: #E67300;
+            --green: #138808;
+            --green-light: #1DA81A;
+            --green-dark: #0D6606;
+            --navy: #1a1a2e;
+            --navy-light: #16213e;
+            --gold: #C5A059;
+            --gold-light: #D4AF6B;
+            
+            /* Text Colors */
+            --text-primary: #f8f9ff;
+            --text-secondary: #b8c1d1;
+            --text-muted: #7a86a1;
+            --text-inverse: #0a0a14;
+            
+            /* UI Elements */
+            --border-color: rgba(197, 160, 89, 0.25);
+            --border-light: rgba(255, 255, 255, 0.1);
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 8px 30px rgba(0, 0, 0, 0.4);
+            --shadow-lg: 0 16px 50px rgba(0, 0, 0, 0.5);
+            --glow-saffron: 0 0 25px rgba(255, 153, 51, 0.3);
+            --glow-green: 0 0 25px rgba(19, 136, 8, 0.3);
+            --glow-gold: 0 0 25px rgba(197, 160, 89, 0.3);
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* ===== CREATOR BADGE ===== */
+        .creator-badge {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 1001;
+            background: linear-gradient(135deg, var(--bg-elevated), var(--bg-tertiary));
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 0.75rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-normal);
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        .creator-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--glow-gold);
+            border-color: var(--gold);
+        }
+
+        .creator-badge i {
+            color: var(--gold);
+        }
+
+        .creator-badge a {
+            color: var(--saffron-light);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .creator-badge a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 30%, var(--bg-tertiary) 70%, var(--navy) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,153,51,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(19,136,8,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(197,160,89,0.06) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.4;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0.4; }
+            25% { transform: translateY(-40px) translateX(30px) rotate(90deg); opacity: 0.7; }
+            50% { transform: translateY(-80px) translateX(-15px) rotate(180deg); opacity: 0.5; }
+            75% { transform: translateY(-40px) translateX(-30px) rotate(270deg); opacity: 0.6; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+            padding: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,153,51,0.15);
+            border: 1px solid rgba(255,153,51,0.4);
+            color: var(--saffron-light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-badge i {
+            color: var(--saffron);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, var(--saffron), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .hero h1 .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--saffron), var(--gold));
+            border-radius: 2px;
+            opacity: 0.5;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .hero-slogan {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: var(--gold);
+            font-style: italic;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .hero-slogan::before,
+        .hero-slogan::after {
+            content: '"';
+            font-size: 2rem;
+            opacity: 0.5;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
+            color: var(--text-inverse);
+            box-shadow: var(--glow-saffron);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(255,153,51,0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 3rem;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all var(--transition-normal);
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(10, 10, 20, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .nav-logo i {
+            color: var(--saffron);
+            font-size: 1.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--saffron);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--saffron);
+            transition: width var(--transition-normal);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: all var(--transition-fast);
+        }
+
+        /* ===== SECTION STYLES ===== */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(255,153,51,0.12);
+            color: var(--saffron-light);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(255,153,51,0.3);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* ===== PROBLEM SECTION ===== */
+        .problem-section {
+            background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .problem-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .problem-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--saffron), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-normal);
+        }
+
+        .problem-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border-color);
+        }
+
+        .problem-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-card:nth-child(1) .problem-icon { background: rgba(255,153,51,0.15); color: var(--saffron); }
+        .problem-card:nth-child(2) .problem-icon { background: rgba(19,136,8,0.15); color: var(--green); }
+        .problem-card:nth-child(3) .problem-icon { background: rgba(197,160,89,0.15); color: var(--gold); }
+        .problem-card:nth-child(4) .problem-icon { background: rgba(26,26,46,0.3); color: var(--navy-light); }
+
+        .problem-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        /* ===== CONCEPT SECTION ===== */
+        .concept-section {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .concept-visual {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .concept-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .concept-text p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .concept-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .concept-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .concept-list li i {
+            color: var(--green);
+            font-size: 1.1rem;
+            min-width: 20px;
+        }
+
+        .storage-pyramid {
+            position: relative;
+            padding: 2rem;
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+        }
+
+        .pyramid-level {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2rem;
+            margin: 0.5rem auto;
+            border-radius: 12px;
+            color: var(--text-inverse);
+            font-weight: 600;
+            position: relative;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .pyramid-level:hover {
+            transform: scale(1.03);
+        }
+
+        .pyramid-level i {
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .level-1 {
+            width: 40%;
+            background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
+            box-shadow: var(--glow-saffron);
+        }
+
+        .level-2 {
+            width: 60%;
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            box-shadow: var(--glow-green);
+        }
+
+        .level-3 {
+            width: 80%;
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+            box-shadow: 0 8px 25px rgba(26,26,46,0.5);
+        }
+
+        .level-4 {
+            width: 100%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            box-shadow: var(--glow-gold);
+            color: var(--text-inverse);
+        }
+
+        .pyramid-label {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* ===== METHODOLOGY SECTION (NEW) ===== */
+        .methodology-section {
+            background: var(--bg-tertiary);
+        }
+
+        .methodology-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .method-step {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border-light);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .method-step:hover {
+            border-color: var(--border-color);
+            transform: translateY(-5px);
+        }
+
+        .method-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--saffron), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--text-inverse);
+            margin: 0 auto 1rem;
+        }
+
+        .method-step h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .method-step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* ===== EXAMPLE SECTION ===== */
+        .example-section {
+            background: var(--bg-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,153,51,0.08) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .example-section .section-tag {
+            background: rgba(255,153,51,0.15);
+            color: var(--saffron-light);
+            border-color: rgba(255,153,51,0.4);
+        }
+
+        .example-section .section-title {
+            color: var(--text-primary);
+        }
+
+        .example-section .section-desc {
+            color: var(--text-secondary);
+        }
+
+        .example-comparison {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .comparison-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all var(--transition-normal);
+        }
+
+        .comparison-card:hover {
+            border-color: var(--border-color);
+            transform: translateY(-5px);
+        }
+
+        .comparison-card.before {
+            border-left: 4px solid #ef4444;
+        }
+
+        .comparison-card.after {
+            border-left: 4px solid var(--green);
+        }
+
+        .comparison-badge {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .before .comparison-badge { background: rgba(239,68,68,0.15); color: #ef4444; }
+        .after .comparison-badge { background: rgba(19,136,8,0.15); color: var(--green-light); }
+
+        .comparison-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .comparison-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .comparison-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .flow-step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 1rem;
+            background: var(--bg-elevated);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .flow-step i {
+            color: var(--saffron);
+            font-size: 1rem;
+            min-width: 20px;
+        }
+
+        .vs-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+
+        .vs-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--saffron), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-inverse);
+            box-shadow: var(--glow-saffron);
+        }
+
+        /* ===== POWER SECTION ===== */
+        .power-section {
+            background: var(--bg-primary);
+        }
+
+        .power-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .power-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            text-align: center;
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .power-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--saffron), var(--green));
+            transform: scaleX(0);
+            transition: transform var(--transition-normal);
+        }
+
+        .power-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border-color);
+        }
+
+        .power-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .power-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .power-card:nth-child(1) .power-icon { background: linear-gradient(135deg, rgba(255,153,51,0.15), rgba(255,153,51,0.25)); color: var(--saffron); }
+        .power-card:nth-child(2) .power-icon { background: linear-gradient(135deg, rgba(19,136,8,0.15), rgba(19,136,8,0.25)); color: var(--green); }
+        .power-card:nth-child(3) .power-icon { background: linear-gradient(135deg, rgba(197,160,89,0.15), rgba(197,160,89,0.25)); color: var(--gold); }
+
+        .power-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .power-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .power-quote {
+            max-width: 800px;
+            margin: 4rem auto 0;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(255,153,51,0.05), rgba(19,136,8,0.05));
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+        }
+
+        .power-quote p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .power-quote .quote-author {
+            margin-top: 1rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ===== TECH STACK SECTION (NEW) ===== */
+        .tech-section {
+            background: var(--bg-secondary);
+        }
+
+        .tech-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all var(--transition-normal);
+        }
+
+        .tech-card:hover {
+            border-color: var(--border-color);
+            transform: translateY(-3px);
+        }
+
+        .tech-card i {
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .tech-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .tech-card p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* ===== EXPANSION SECTION ===== */
+        .expansion-section {
+            background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .expansion-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .expansion-chart {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .expansion-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .expansion-text p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .milestone-list {
+            list-style: none;
+        }
+
+        .milestone-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .milestone-list li:last-child {
+            border-bottom: none;
+        }
+
+        .milestone-year {
+            background: linear-gradient(135deg, var(--saffron), var(--gold));
+            color: var(--text-inverse);
+            padding: 0.3rem 0.8rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .milestone-desc {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        /* ===== GOVERNANCE SECTION (NEW) ===== */
+        .governance-section {
+            background: var(--bg-primary);
+        }
+
+        .governance-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .governance-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid var(--border-light);
+        }
+
+        .governance-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .governance-card h4 i {
+            color: var(--saffron);
+        }
+
+        .governance-card ul {
+            list-style: none;
+            color: var(--text-secondary);
+        }
+
+        .governance-card ul li {
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .governance-card ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* ===== VISION SECTION ===== */
+        .vision-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--bg-tertiary) 100%);
+            color: var(--text-primary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vision-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(255,153,51,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 50%, rgba(19,136,8,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .vision-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .vision-slogan {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--saffron), var(--gold), var(--green-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            line-height: 1.3;
+        }
+
+        .vision-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .vision-item {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all var(--transition-normal);
+        }
+
+        .vision-item:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-5px);
+            border-color: var(--border-color);
+        }
+
+        .vision-item i {
+            font-size: 2rem;
+            color: var(--saffron);
+            margin-bottom: 1rem;
+        }
+
+        .vision-item h4 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .vision-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== IMPACT SECTION ===== */
+        .impact-section {
+            background: var(--bg-secondary);
+        }
+
+        .impact-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .impact-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            transition: all var(--transition-normal);
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--border-color);
+        }
+
+        .impact-icon {
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .impact-card:nth-child(1) .impact-icon { background: rgba(255,153,51,0.15); color: var(--saffron); }
+        .impact-card:nth-child(2) .impact-icon { background: rgba(19,136,8,0.15); color: var(--green); }
+        .impact-card:nth-child(3) .impact-icon { background: rgba(197,160,89,0.15); color: var(--gold); }
+        .impact-card:nth-child(4) .impact-icon { background: rgba(26,26,46,0.3); color: var(--navy-light); }
+
+        .impact-text h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-text p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ===== FAQ SECTION (NEW) ===== */
+        .faq-section {
+            background: var(--bg-tertiary);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: 16px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: background var(--transition-fast);
+        }
+
+        .faq-question:hover {
+            background: var(--bg-elevated);
+        }
+
+        .faq-question i {
+            color: var(--gold);
+            transition: transform var(--transition-fast);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            color: var(--text-secondary);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--bg-tertiary) 100%);
+            color: var(--text-primary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,153,51,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-section::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(19,136,8,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .cta-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-glow {
+            background: linear-gradient(135deg, var(--saffron), var(--gold));
+            color: var(--text-inverse);
+            box-shadow: var(--glow-saffron);
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 50px rgba(255,153,51,0.6);
+            transform: translateY(-3px);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--bg-primary);
+            color: var(--text-muted);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--border-light);
+        }
+
+        footer .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        footer .footer-logo i {
+            color: var(--saffron);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            margin: 0.3rem 0;
+        }
+
+        footer a {
+            color: var(--saffron-light);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-creator {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-light);
+            font-size: 0.85rem;
+        }
+
+        .footer-creator strong {
+            color: var(--gold);
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .concept-visual,
+            .expansion-content {
+                grid-template-columns: 1fr;
+            }
+            .power-grid {
+                grid-template-columns: 1fr;
+            }
+            .vision-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .example-comparison {
+                grid-template-columns: 1fr;
+            }
+            .vs-divider {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                display: none;
+            }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-secondary);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                border-bottom: 1px solid var(--border-light);
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-toggle {
+                display: flex;
+            }
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+            .vision-grid {
+                grid-template-columns: 1fr;
+            }
+            section {
+                padding: 4rem 1.5rem;
+            }
+            .creator-badge {
+                bottom: 1rem;
+                right: 1rem;
+                font-size: 0.75rem;
+                padding: 0.5rem 1rem;
+            }
+        }
+
+        /* ===== CUSTOM SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--gold);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--saffron);
+        }
+
+        /* ===== ACCESSIBILITY ===== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* ===== FOCUS STATES ===== */
+        a:focus, button:focus, .btn:focus {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+
+    <!-- CREATOR BADGE -->
+    <div class="creator-badge">
+        <i class="fas fa-user-astronaut"></i>
+        Created by <a href="https://helixoriginator.github.io/kallol-research-hub/" title="Kallol Research Hub">Kallol Chakrabarti</a>, Global Independent Researcher
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-logo">
+            <i class="fas fa-university"></i>
+            <span>Jan-Dhan of Knowledge</span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#problem">The Problem</a></li>
+            <li><a href="#concept">The Concept</a></li>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#example">Example</a></li>
+            <li><a href="#power">Why It Works</a></li>
+            <li><a href="#expansion">Future</a></li>
+            <li><a href="#vision">Vision</a></li>
+        </ul>
+        <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-particles" id="particles"></div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-landmark"></i>
+                Village Knowledge Bank Initiative
+            </div>
+            <h1>
+                Jan-Dhan of<br><span class="highlight">Knowledge</span>
+            </h1>
+            <p class="hero-subtitle">
+                India's first digital and physical Knowledge Bank for every village. 
+                Preserving local wisdom, empowering generations, and transforming 
+                rural communities into knowledge creators.
+            </p>
+            <p class="hero-slogan">
+                Every citizen is a teacher. Every village is a university.
+            </p>
+            <div class="hero-cta">
+                <a href="#concept" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    Explore the Vision
+                </a>
+                <a href="#example" class="btn btn-outline">
+                    <i class="fas fa-play-circle"></i>
+                    See How It Works
+                </a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-item">
+                <div class="stat-number">1M+</div>
+                <div class="stat-label">Innovations</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">58K+</div>
+                <div class="stat-label">Villages</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">240M</div>
+                <div class="stat-label">Citizens</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2047</div>
+                <div class="stat-label">Vision Year</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="problem-section" id="problem">
+        <div class="section-header reveal">
+            <span class="section-tag">The Crisis</span>
+            <h2 class="section-title">The Hidden Experts of Every Village</h2>
+            <p class="section-desc">
+                Every village holds invaluable wisdom that disappears when its custodians retire or pass away. 
+                India has banks for money, land, and documents — but no bank for local wisdom.
+            </p>
+        </div>
+        <div class="problem-grid">
+            <div class="problem-card reveal">
+                <div class="problem-icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3>The Farmer's Secret</h3>
+                <p>A farmer who discovered a technique to double crop yield. When he retires, decades of soil wisdom vanishes with him.</p>
+            </div>
+            <div class="problem-card reveal">
+                <div class="problem-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h3>The SHG Leader</h3>
+                <p>A woman who built a successful Self-Help Group business model. Her entrepreneurial insights are never documented.</p>
+            </div>
+            <div class="problem-card reveal">
+                <div class="problem-icon">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                </div>
+                <h3>The Transformative Teacher</h3>
+                <p>A teacher who reduced school dropouts through innovative methods. His pedagogical breakthroughs are lost to time.</p>
+            </div>
+            <div class="problem-card reveal">
+                <div class="problem-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>The Master Electrician</h3>
+                <p>An electrician who trained dozens of youth in skilled trades. His training methodology dies with his retirement.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONCEPT SECTION -->
+    <section class="concept-section" id="concept">
+        <div class="section-header reveal">
+            <span class="section-tag">The Solution</span>
+            <h2 class="section-title">A Knowledge Bank for Every Village</h2>
+            <p class="section-desc">
+                Create a digital and physical "Knowledge Bank" that captures, preserves, and distributes 
+                grassroots innovation across every level of governance.
+            </p>
+        </div>
+        <div class="concept-visual">
+            <div class="concept-text reveal">
+                <h3>Monthly Knowledge Capture</h3>
+                <p>Every month, field teams visit villages to document and record invaluable local knowledge that would otherwise be lost forever.</p>
+                <ul class="concept-list">
+                    <li><i class="fas fa-check-circle"></i> Record success stories from local achievers</li>
+                    <li><i class="fas fa-check-circle"></i> Document proven farming techniques</li>
+                    <li><i class="fas fa-check-circle"></i> Capture local innovations and hacks</li>
+                    <li><i class="fas fa-check-circle"></i> Preserve traditional water conservation</li>
+                    <li><i class="fas fa-check-circle"></i> Archive village entrepreneurship models</li>
+                </ul>
+                <p style="font-style: italic; color: var(--gold); font-weight: 600;">
+                    <i class="fas fa-lightbulb" style="margin-right: 0.5rem;"></i>
+                    One villager's idea becomes a state asset.
+                </p>
+            </div>
+            <div class="storage-pyramid reveal">
+                <div class="pyramid-level level-1">
+                    <i class="fas fa-home"></i>
+                    Village Panchayat
+                </div>
+                <div class="pyramid-level level-2">
+                    <i class="fas fa-building"></i>
+                    District Knowledge Center
+                </div>
+                <div class="pyramid-level level-3">
+                    <i class="fas fa-server"></i>
+                    State Knowledge Cloud
+                </div>
+                <div class="pyramid-level level-4">
+                    <i class="fas fa-globe"></i>
+                    National Knowledge Grid
+                </div>
+                <p class="pyramid-label">Four-Tier Storage Architecture</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- METHODOLOGY SECTION (NEW) -->
+    <section class="methodology-section" id="methodology">
+        <div class="section-header reveal">
+            <span class="section-tag">How It Works</span>
+            <h2 class="section-title">Systematic Knowledge Capture Framework</h2>
+            <p class="section-desc">
+                A proven, scalable methodology to identify, document, verify, and disseminate grassroots innovations.
+            </p>
+        </div>
+        <div class="methodology-grid">
+            <div class="method-step reveal">
+                <div class="method-number">1</div>
+                <h4>Identify</h4>
+                <p>Field coordinators partner with Panchayats to identify local knowledge holders through community nominations.</p>
+            </div>
+            <div class="method-step reveal">
+                <div class="method-number">2</div>
+                <h4>Document</h4>
+                <p>Multi-modal capture: video interviews, voice notes, photos, and written protocols in local languages.</p>
+            </div>
+            <div class="method-step reveal">
+                <div class="method-number">3</div>
+                <h4>Verify</h4>
+                <p>Peer validation by local experts and pilot testing to ensure reproducibility and practical value.</p>
+            </div>
+            <div class="method-step reveal">
+                <div class="method-number">4</div>
+                <h4>Digitize</h4>
+                <p>AI-powered transcription, translation, tagging, and indexing for searchable archival.</p>
+            </div>
+            <div class="method-step reveal">
+                <div class="method-number">5</div>
+                <h4>Disseminate</h4>
+                <p>Distribute via mobile apps, IVR systems, community screens, and printed guides in regional languages.</p>
+            </div>
+            <div class="method-step reveal">
+                <div class="method-number">6</div>
+                <h4>Iterate</h4>
+                <p>Feedback loops enable continuous improvement and adaptation of documented practices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXAMPLE SECTION -->
+    <section class="example-section" id="example">
+        <div class="section-header reveal">
+            <span class="section-tag">Real Impact</span>
+            <h2 class="section-title">From Local Secret to State Asset</h2>
+            <p class="section-desc">
+                See how a single farmer's innovation in Prayagraj can transform agriculture across Uttar Pradesh.
+            </p>
+        </div>
+        <div class="example-comparison">
+            <div class="comparison-card before reveal">
+                <span class="comparison-badge">Without Knowledge Bank</span>
+                <h4>The Old Way</h4>
+                <p>A farmer in Prayagraj discovers a way to reduce water use by 40% through innovative drip irrigation combined with traditional mulching.</p>
+                <div class="comparison-flow">
+                    <div class="flow-step">
+                        <i class="fas fa-user"></i>
+                        <span>Only his family benefits</span>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-times-circle" style="color: #ef4444;"></i>
+                        <span>Knowledge dies with him</span>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-times-circle" style="color: #ef4444;"></i>
+                        <span>Neighboring farmers never learn</span>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-times-circle" style="color: #ef4444;"></i>
+                        <span>State loses valuable innovation</span>
+                    </div>
+                </div>
+            </div>
+            <div class="vs-divider reveal">
+                <div class="vs-circle">VS</div>
+            </div>
+            <div class="comparison-card after reveal">
+                <span class="comparison-badge">With Knowledge Bank</span>
+                <h4>The New Way</h4>
+                <p>The same farmer's breakthrough is captured, processed, and distributed to every farmer in the state through AI-powered guides.</p>
+                <div class="comparison-flow">
+                    <div class="flow-step">
+                        <i class="fas fa-video"></i>
+                        <span>His method is recorded on video</span>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-robot"></i>
+                        <span>AI converts into simple guides</span>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-users"></i>
+                        <span>Every farmer in UP can access it</span>
+                    </div>
+                    <div class="flow-step">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Becomes a permanent state asset</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POWER SECTION -->
+    <section class="power-section" id="power">
+        <div class="section-header reveal">
+            <span class="section-tag">Why It Works</span>
+            <h2 class="section-title">Knowledge Infrastructure for the Nation</h2>
+            <p class="section-desc">
+                While governments focus on physical infrastructure, welfare, and subsidies, 
+                this project builds the most valuable asset of all: Intellectual Capital.
+            </p>
+        </div>
+        <div class="power-grid">
+            <div class="power-card reveal">
+                <div class="power-icon">
+                    <i class="fas fa-road"></i>
+                </div>
+                <h3>Physical Infrastructure</h3>
+                <p>Roads connect villages to markets. Bridges connect communities. But knowledge highways connect generations.</p>
+            </div>
+            <div class="power-card reveal">
+                <div class="power-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <h3>Knowledge Connects</h3>
+                <p>Roads connect villages. Knowledge connects generations. Every recorded innovation becomes a bridge to the future.</p>
+            </div>
+            <div class="power-card reveal">
+                <div class="power-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>Intellectual Capital</h3>
+                <p>This creates a new state asset: The Intellectual Capital of Rural India. Low-cost, scalable, and technology-driven.</p>
+            </div>
+        </div>
+        <div class="power-quote reveal">
+            <p>"Roads connect villages. Knowledge connects generations."</p>
+            <div class="quote-author">— Core Philosophy of Jan-Dhan of Knowledge</div>
+        </div>
+    </section>
+
+    <!-- TECH STACK SECTION (NEW) -->
+    <section class="tech-section" id="technology">
+        <div class="section-header reveal">
+            <span class="section-tag">Technology Stack</span>
+            <h2 class="section-title">Built for Scale, Accessibility & Impact</h2>
+            <p class="section-desc">
+                Leveraging modern, open-source technologies to ensure affordability, interoperability, and future-readiness.
+            </p>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card reveal">
+                <i class="fas fa-cloud"></i>
+                <h4>Cloud Infrastructure</h4>
+                <p>AWS/GovCloud with multi-region redundancy</p>
+            </div>
+            <div class="tech-card reveal">
+                <i class="fas fa-brain"></i>
+                <h4>AI/ML Engine</h4>
+                <p>NLP for vernacular processing, recommendation systems</p>
+            </div>
+            <div class="tech-card reveal">
+                <i class="fas fa-mobile-alt"></i>
+                <h4>Mobile First</h4>
+                <p>Progressive Web App + Offline-first architecture</p>
+            </div>
+            <div class="tech-card reveal">
+                <i class="fas fa-volume-up"></i>
+                <h4>Voice Interface</h4>
+                <p>IVR & voice bots for low-literacy accessibility</p>
+            </div>
+            <div class="tech-card reveal">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Data Security</h4>
+                <p>End-to-end encryption, consent management, GDPR-compliant</p>
+            </div>
+            <div class="tech-card reveal">
+                <i class="fas fa-project-diagram"></i>
+                <h4>Open APIs</h4>
+                <p>Interoperable with DI
