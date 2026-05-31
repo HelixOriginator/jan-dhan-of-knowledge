@@ -53,16 +53,9 @@
             --transition-slow: 0.5s ease;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -72,12 +65,12 @@
             line-height: 1.7;
         }
 
-        /* ===== CREATOR BADGE ===== */
+        /* ===== CREATOR BADGE - FIXED POSITION ===== */
         .creator-badge {
             position: fixed;
             bottom: 1.5rem;
             right: 1.5rem;
-            z-index: 1001;
+            z-index: 9999;
             background: linear-gradient(135deg, var(--bg-elevated), var(--bg-tertiary));
             border: 1px solid var(--border-color);
             border-radius: 12px;
@@ -98,9 +91,7 @@
             border-color: var(--gold);
         }
 
-        .creator-badge i {
-            color: var(--gold);
-        }
+        .creator-badge i { color: var(--gold); }
 
         .creator-badge a {
             color: var(--saffron-light);
@@ -108,9 +99,7 @@
             font-weight: 600;
         }
 
-        .creator-badge a:hover {
-            text-decoration: underline;
-        }
+        .creator-badge a:hover { text-decoration: underline; }
 
         @keyframes slideInRight {
             from { opacity: 0; transform: translateX(50px); }
@@ -131,10 +120,7 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: 
                 radial-gradient(circle at 20% 80%, rgba(255,153,51,0.08) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(19,136,8,0.08) 0%, transparent 50%),
@@ -144,10 +130,7 @@
 
         .hero-grid {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
                 linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
@@ -158,10 +141,7 @@
 
         .hero-particles {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             overflow: hidden;
             pointer-events: none;
         }
@@ -205,9 +185,7 @@
             animation: fadeInUp 1s ease-out;
         }
 
-        .hero-badge i {
-            color: var(--saffron);
-        }
+        .hero-badge i { color: var(--saffron); }
 
         .hero h1 {
             font-family: 'Playfair Display', serif;
@@ -230,10 +208,7 @@
         .hero h1 .highlight::after {
             content: '';
             position: absolute;
-            bottom: 8px;
-            left: 0;
-            width: 100%;
-            height: 3px;
+            bottom: 8px; left: 0; width: 100%; height: 3px;
             background: linear-gradient(90deg, var(--saffron), var(--gold));
             border-radius: 2px;
             opacity: 0.5;
@@ -255,15 +230,6 @@
             font-style: italic;
             margin-bottom: 3rem;
             animation: fadeInUp 1s ease-out 0.6s both;
-            position: relative;
-            padding: 0 2rem;
-        }
-
-        .hero-slogan::before,
-        .hero-slogan::after {
-            content: '"';
-            font-size: 2rem;
-            opacity: 0.5;
         }
 
         .hero-cta {
@@ -293,17 +259,13 @@
         .btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
             transition: left 0.5s;
         }
 
-        .btn:hover::before {
-            left: 100%;
-        }
+        .btn:hover::before { left: 100%; }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
@@ -339,9 +301,7 @@
             animation: fadeInUp 1s ease-out 1s both;
         }
 
-        .stat-item {
-            text-align: center;
-        }
+        .stat-item { text-align: center; }
 
         .stat-number {
             font-family: 'Playfair Display', serif;
@@ -365,9 +325,7 @@
         /* ===== NAVIGATION ===== */
         .navbar {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             z-index: 1000;
             padding: 1rem 2rem;
             display: flex;
@@ -393,10 +351,7 @@
             font-size: 1.1rem;
         }
 
-        .nav-logo i {
-            color: var(--saffron);
-            font-size: 1.3rem;
-        }
+        .nav-logo i { color: var(--saffron); font-size: 1.3rem; }
 
         .nav-links {
             display: flex;
@@ -413,24 +368,18 @@
             position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--saffron);
-        }
+        .nav-links a:hover { color: var(--saffron); }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
+            bottom: -5px; left: 0;
+            width: 0; height: 2px;
             background: var(--saffron);
             transition: width var(--transition-normal);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+        .nav-links a:hover::after { width: 100%; }
 
         .nav-toggle {
             display: none;
@@ -441,18 +390,14 @@
         }
 
         .nav-toggle span {
-            width: 25px;
-            height: 3px;
+            width: 25px; height: 3px;
             background: var(--text-primary);
             border-radius: 2px;
             transition: all var(--transition-fast);
         }
 
         /* ===== SECTION STYLES ===== */
-        section {
-            padding: 6rem 2rem;
-            position: relative;
-        }
+        section { padding: 6rem 2rem; position: relative; }
 
         .section-header {
             text-align: center;
@@ -490,20 +435,7 @@
         }
 
         /* ===== PROBLEM SECTION ===== */
-        .problem-section {
-            background: var(--bg-secondary);
-            position: relative;
-        }
-
-        .problem-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
-        }
+        .problem-section { background: var(--bg-secondary); }
 
         .problem-grid {
             display: grid;
@@ -527,10 +459,7 @@
         .problem-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
+            top: 0; left: 0; width: 100%; height: 4px;
             background: linear-gradient(90deg, var(--saffron), var(--gold));
             transform: scaleX(0);
             transform-origin: left;
@@ -543,13 +472,10 @@
             border-color: var(--border-color);
         }
 
-        .problem-card:hover::before {
-            transform: scaleX(1);
-        }
+        .problem-card:hover::before { transform: scaleX(1); }
 
         .problem-icon {
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -577,9 +503,7 @@
         }
 
         /* ===== CONCEPT SECTION ===== */
-        .concept-section {
-            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-        }
+        .concept-section { background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%); }
 
         .concept-visual {
             max-width: 1200px;
@@ -604,10 +528,7 @@
             font-size: 1.05rem;
         }
 
-        .concept-list {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
+        .concept-list { list-style: none; margin-bottom: 2rem; }
 
         .concept-list li {
             display: flex;
@@ -618,11 +539,7 @@
             font-weight: 500;
         }
 
-        .concept-list li i {
-            color: var(--green);
-            font-size: 1.1rem;
-            min-width: 20px;
-        }
+        .concept-list li i { color: var(--green); font-size: 1.1rem; min-width: 20px; }
 
         .storage-pyramid {
             position: relative;
@@ -646,39 +563,13 @@
             cursor: pointer;
         }
 
-        .pyramid-level:hover {
-            transform: scale(1.03);
-        }
+        .pyramid-level:hover { transform: scale(1.03); }
+        .pyramid-level i { margin-right: 0.75rem; font-size: 1.2rem; }
 
-        .pyramid-level i {
-            margin-right: 0.75rem;
-            font-size: 1.2rem;
-        }
-
-        .level-1 {
-            width: 40%;
-            background: linear-gradient(135deg, var(--saffron), var(--saffron-dark));
-            box-shadow: var(--glow-saffron);
-        }
-
-        .level-2 {
-            width: 60%;
-            background: linear-gradient(135deg, var(--green), var(--green-dark));
-            box-shadow: var(--glow-green);
-        }
-
-        .level-3 {
-            width: 80%;
-            background: linear-gradient(135deg, var(--navy), var(--navy-light));
-            box-shadow: 0 8px 25px rgba(26,26,46,0.5);
-        }
-
-        .level-4 {
-            width: 100%;
-            background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            box-shadow: var(--glow-gold);
-            color: var(--text-inverse);
-        }
+        .level-1 { width: 40%; background: linear-gradient(135deg, var(--saffron), var(--saffron-dark)); box-shadow: var(--glow-saffron); }
+        .level-2 { width: 60%; background: linear-gradient(135deg, var(--green), var(--green-dark)); box-shadow: var(--glow-green); }
+        .level-3 { width: 80%; background: linear-gradient(135deg, var(--navy), var(--navy-light)); }
+        .level-4 { width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold-light)); box-shadow: var(--glow-gold); color: var(--text-inverse); }
 
         .pyramid-label {
             text-align: center;
@@ -688,71 +579,14 @@
             font-style: italic;
         }
 
-        /* ===== METHODOLOGY SECTION (NEW) ===== */
-        .methodology-section {
-            background: var(--bg-tertiary);
-        }
-
-        .methodology-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .method-step {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid var(--border-light);
-            text-align: center;
-            transition: all var(--transition-normal);
-        }
-
-        .method-step:hover {
-            border-color: var(--border-color);
-            transform: translateY(-5px);
-        }
-
-        .method-number {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--saffron), var(--gold));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            color: var(--text-inverse);
-            margin: 0 auto 1rem;
-        }
-
-        .method-step h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-        }
-
-        .method-step p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
         /* ===== EXAMPLE SECTION ===== */
-        .example-section {
-            background: var(--bg-secondary);
-            position: relative;
-            overflow: hidden;
-        }
+        .example-section { background: var(--bg-secondary); position: relative; overflow: hidden; }
 
         .example-section::before {
             content: '';
             position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 600px;
-            height: 600px;
+            top: -50%; right: -20%;
+            width: 600px; height: 600px;
             background: radial-gradient(circle, rgba(255,153,51,0.08) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
@@ -764,13 +598,8 @@
             border-color: rgba(255,153,51,0.4);
         }
 
-        .example-section .section-title {
-            color: var(--text-primary);
-        }
-
-        .example-section .section-desc {
-            color: var(--text-secondary);
-        }
+        .example-section .section-title { color: var(--text-primary); }
+        .example-section .section-desc { color: var(--text-secondary); }
 
         .example-comparison {
             max-width: 1100px;
@@ -795,13 +624,8 @@
             transform: translateY(-5px);
         }
 
-        .comparison-card.before {
-            border-left: 4px solid #ef4444;
-        }
-
-        .comparison-card.after {
-            border-left: 4px solid var(--green);
-        }
+        .comparison-card.before { border-left: 4px solid #ef4444; }
+        .comparison-card.after { border-left: 4px solid var(--green); }
 
         .comparison-badge {
             display: inline-block;
@@ -830,11 +654,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .comparison-flow {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
+        .comparison-flow { display: flex; flex-direction: column; gap: 0.75rem; }
 
         .flow-step {
             display: flex;
@@ -847,22 +667,12 @@
             color: var(--text-secondary);
         }
 
-        .flow-step i {
-            color: var(--saffron);
-            font-size: 1rem;
-            min-width: 20px;
-        }
+        .flow-step i { color: var(--saffron); font-size: 1rem; min-width: 20px; }
 
-        .vs-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem 0;
-        }
+        .vs-divider { display: flex; align-items: center; justify-content: center; padding: 2rem 0; }
 
         .vs-circle {
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             border-radius: 50%;
             background: linear-gradient(135deg, var(--saffron), var(--gold));
             display: flex;
@@ -875,9 +685,7 @@
         }
 
         /* ===== POWER SECTION ===== */
-        .power-section {
-            background: var(--bg-primary);
-        }
+        .power-section { background: var(--bg-primary); }
 
         .power-grid {
             max-width: 1200px;
@@ -902,10 +710,7 @@
         .power-card::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
+            bottom: 0; left: 0; width: 100%; height: 4px;
             background: linear-gradient(90deg, var(--saffron), var(--green));
             transform: scaleX(0);
             transition: transform var(--transition-normal);
@@ -917,13 +722,10 @@
             border-color: var(--border-color);
         }
 
-        .power-card:hover::after {
-            transform: scaleX(1);
-        }
+        .power-card:hover::after { transform: scaleX(1); }
 
         .power-icon {
-            width: 80px;
-            height: 80px;
+            width: 80px; height: 80px;
             border-radius: 24px;
             display: flex;
             align-items: center;
@@ -973,54 +775,8 @@
             font-size: 0.9rem;
         }
 
-        /* ===== TECH STACK SECTION (NEW) ===== */
-        .tech-section {
-            background: var(--bg-secondary);
-        }
-
-        .tech-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .tech-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-            border: 1px solid var(--border-light);
-            transition: all var(--transition-normal);
-        }
-
-        .tech-card:hover {
-            border-color: var(--border-color);
-            transform: translateY(-3px);
-        }
-
-        .tech-card i {
-            font-size: 2.5rem;
-            color: var(--gold);
-            margin-bottom: 1rem;
-        }
-
-        .tech-card h4 {
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        .tech-card p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
         /* ===== EXPANSION SECTION ===== */
-        .expansion-section {
-            background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
-        }
+        .expansion-section { background: linear-gradient(180deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%); }
 
         .expansion-content {
             max-width: 1200px;
@@ -1053,9 +809,7 @@
             font-size: 1.05rem;
         }
 
-        .milestone-list {
-            list-style: none;
-        }
+        .milestone-list { list-style: none; }
 
         .milestone-list li {
             display: flex;
@@ -1065,9 +819,7 @@
             border-bottom: 1px solid var(--border-light);
         }
 
-        .milestone-list li:last-child {
-            border-bottom: none;
-        }
+        .milestone-list li:last-child { border-bottom: none; }
 
         .milestone-year {
             background: linear-gradient(135deg, var(--saffron), var(--gold));
@@ -1079,61 +831,7 @@
             white-space: nowrap;
         }
 
-        .milestone-desc {
-            color: var(--text-primary);
-            font-weight: 500;
-        }
-
-        /* ===== GOVERNANCE SECTION (NEW) ===== */
-        .governance-section {
-            background: var(--bg-primary);
-        }
-
-        .governance-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .governance-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid var(--border-light);
-        }
-
-        .governance-card h4 {
-            color: var(--text-primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .governance-card h4 i {
-            color: var(--saffron);
-        }
-
-        .governance-card ul {
-            list-style: none;
-            color: var(--text-secondary);
-        }
-
-        .governance-card ul li {
-            padding: 0.4rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .governance-card ul li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-weight: bold;
-        }
+        .milestone-desc { color: var(--text-primary); font-weight: 500; }
 
         /* ===== VISION SECTION ===== */
         .vision-section {
@@ -1147,10 +845,7 @@
         .vision-section::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            top: 0; left: 0; right: 0; bottom: 0;
             background: 
                 radial-gradient(circle at 30% 50%, rgba(255,153,51,0.08) 0%, transparent 50%),
                 radial-gradient(circle at 70% 50%, rgba(19,136,8,0.08) 0%, transparent 50%);
@@ -1204,27 +899,12 @@
             border-color: var(--border-color);
         }
 
-        .vision-item i {
-            font-size: 2rem;
-            color: var(--saffron);
-            margin-bottom: 1rem;
-        }
-
-        .vision-item h4 {
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .vision-item p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
+        .vision-item i { font-size: 2rem; color: var(--saffron); margin-bottom: 1rem; }
+        .vision-item h4 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .vision-item p { font-size: 0.85rem; color: var(--text-muted); }
 
         /* ===== IMPACT SECTION ===== */
-        .impact-section {
-            background: var(--bg-secondary);
-        }
+        .impact-section { background: var(--bg-secondary); }
 
         .impact-grid {
             max-width: 1200px;
@@ -1253,9 +933,7 @@
         }
 
         .impact-icon {
-            width: 60px;
-            height: 60px;
-            min-width: 60px;
+            width: 60px; height: 60px; min-width: 60px;
             border-radius: 16px;
             display: flex;
             align-items: center;
@@ -1281,61 +959,6 @@
             line-height: 1.6;
         }
 
-        /* ===== FAQ SECTION (NEW) ===== */
-        .faq-section {
-            background: var(--bg-tertiary);
-        }
-
-        .faq-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
-            background: var(--bg-card);
-            border-radius: 16px;
-            margin-bottom: 1rem;
-            border: 1px solid var(--border-light);
-            overflow: hidden;
-        }
-
-        .faq-question {
-            padding: 1.25rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: background var(--transition-fast);
-        }
-
-        .faq-question:hover {
-            background: var(--bg-elevated);
-        }
-
-        .faq-question i {
-            color: var(--gold);
-            transition: transform var(--transition-fast);
-        }
-
-        .faq-item.active .faq-question i {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            padding: 0 1.5rem;
-            max-height: 0;
-            overflow: hidden;
-            transition: all var(--transition-normal);
-            color: var(--text-secondary);
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 0 1.5rem 1.5rem;
-            max-height: 500px;
-        }
-
         /* ===== CTA SECTION ===== */
         .cta-section {
             background: linear-gradient(135deg, var(--navy) 0%, var(--bg-tertiary) 100%);
@@ -1348,10 +971,8 @@
         .cta-section::before {
             content: '';
             position: absolute;
-            top: -100px;
-            right: -100px;
-            width: 400px;
-            height: 400px;
+            top: -100px; right: -100px;
+            width: 400px; height: 400px;
             background: radial-gradient(circle, rgba(255,153,51,0.1) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
@@ -1360,10 +981,8 @@
         .cta-section::after {
             content: '';
             position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 400px;
-            height: 400px;
+            bottom: -100px; left: -100px;
+            width: 400px; height: 400px;
             background: radial-gradient(circle, rgba(19,136,8,0.1) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
@@ -1432,23 +1051,10 @@
             margin-bottom: 1rem;
         }
 
-        footer .footer-logo i {
-            color: var(--saffron);
-        }
-
-        footer p {
-            font-size: 0.9rem;
-            margin: 0.3rem 0;
-        }
-
-        footer a {
-            color: var(--saffron-light);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
+        footer .footer-logo i { color: var(--saffron); }
+        footer p { font-size: 0.9rem; margin: 0.3rem 0; }
+        footer a { color: var(--saffron-light); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
 
         .footer-creator {
             margin-top: 1.5rem;
@@ -1457,9 +1063,7 @@
             font-size: 0.85rem;
         }
 
-        .footer-creator strong {
-            color: var(--gold);
-        }
+        .footer-creator strong { color: var(--gold); }
 
         /* ===== SCROLL ANIMATIONS ===== */
         .reveal {
@@ -1475,77 +1079,38 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .concept-visual,
-            .expansion-content {
-                grid-template-columns: 1fr;
-            }
-            .power-grid {
-                grid-template-columns: 1fr;
-            }
-            .vision-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .example-comparison {
-                grid-template-columns: 1fr;
-            }
-            .vs-divider {
-                display: none;
-            }
+            .concept-visual, .expansion-content { grid-template-columns: 1fr; }
+            .power-grid { grid-template-columns: 1fr; }
+            .vision-grid { grid-template-columns: repeat(2, 1fr); }
+            .example-comparison { grid-template-columns: 1fr; }
+            .vs-divider { display: none; }
         }
 
         @media (max-width: 768px) {
-            .hero-stats {
-                display: none;
-            }
+            .hero-stats { display: none; }
             .nav-links {
                 display: none;
                 position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
+                top: 100%; left: 0; right: 0;
                 background: var(--bg-secondary);
                 flex-direction: column;
                 padding: 1rem;
                 gap: 1rem;
                 border-bottom: 1px solid var(--border-light);
             }
-            .nav-links.active {
-                display: flex;
-            }
-            .nav-toggle {
-                display: flex;
-            }
-            .impact-grid {
-                grid-template-columns: 1fr;
-            }
-            .vision-grid {
-                grid-template-columns: 1fr;
-            }
-            section {
-                padding: 4rem 1.5rem;
-            }
-            .creator-badge {
-                bottom: 1rem;
-                right: 1rem;
-                font-size: 0.75rem;
-                padding: 0.5rem 1rem;
-            }
+            .nav-links.active { display: flex; }
+            .nav-toggle { display: flex; }
+            .impact-grid { grid-template-columns: 1fr; }
+            .vision-grid { grid-template-columns: 1fr; }
+            section { padding: 4rem 1.5rem; }
+            .creator-badge { bottom: 1rem; right: 1rem; font-size: 0.75rem; padding: 0.5rem 1rem; }
         }
 
         /* ===== CUSTOM SCROLLBAR ===== */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--gold);
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--saffron);
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+        ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--saffron); }
 
         /* ===== ACCESSIBILITY ===== */
         @media (prefers-reduced-motion: reduce) {
@@ -1556,20 +1121,18 @@
             }
         }
 
-        /* ===== FOCUS STATES ===== */
         a:focus, button:focus, .btn:focus {
             outline: 2px solid var(--gold);
             outline-offset: 2px;
         }
     </style>
-<base target="_blank">
 </head>
 <body>
 
-    <!-- CREATOR BADGE -->
+    <!-- CREATOR BADGE - FIXED POSITION -->
     <div class="creator-badge">
         <i class="fas fa-user-astronaut"></i>
-        Created by <a href="https://helixoriginator.github.io/kallol-research-hub/" title="Kallol Research Hub">Kallol Chakrabarti</a>, Global Independent Researcher
+        Created by <a href="https://helixoriginator.github.io/kallol-research-hub/">Kallol Chakrabarti</a>, Global Independent Researcher
     </div>
 
     <!-- NAVIGATION -->
@@ -1581,16 +1144,13 @@
         <ul class="nav-links" id="navLinks">
             <li><a href="#problem">The Problem</a></li>
             <li><a href="#concept">The Concept</a></li>
-            <li><a href="#methodology">Methodology</a></li>
             <li><a href="#example">Example</a></li>
             <li><a href="#power">Why It Works</a></li>
             <li><a href="#expansion">Future</a></li>
             <li><a href="#vision">Vision</a></li>
         </ul>
         <div class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
     </nav>
 
@@ -1603,45 +1163,23 @@
                 <i class="fas fa-landmark"></i>
                 Village Knowledge Bank Initiative
             </div>
-            <h1>
-                Jan-Dhan of<br><span class="highlight">Knowledge</span>
-            </h1>
+            <h1>Jan-Dhan of<br><span class="highlight">Knowledge</span></h1>
             <p class="hero-subtitle">
                 India's first digital and physical Knowledge Bank for every village. 
                 Preserving local wisdom, empowering generations, and transforming 
                 rural communities into knowledge creators.
             </p>
-            <p class="hero-slogan">
-                Every citizen is a teacher. Every village is a university.
-            </p>
+            <p class="hero-slogan">Every citizen is a teacher. Every village is a university.</p>
             <div class="hero-cta">
-                <a href="#concept" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i>
-                    Explore the Vision
-                </a>
-                <a href="#example" class="btn btn-outline">
-                    <i class="fas fa-play-circle"></i>
-                    See How It Works
-                </a>
+                <a href="#concept" class="btn btn-primary"><i class="fas fa-rocket"></i> Explore the Vision</a>
+                <a href="#example" class="btn btn-outline"><i class="fas fa-play-circle"></i> See How It Works</a>
             </div>
         </div>
         <div class="hero-stats">
-            <div class="stat-item">
-                <div class="stat-number">1M+</div>
-                <div class="stat-label">Innovations</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">58K+</div>
-                <div class="stat-label">Villages</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">240M</div>
-                <div class="stat-label">Citizens</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">2047</div>
-                <div class="stat-label">Vision Year</div>
-            </div>
+            <div class="stat-item"><div class="stat-number">1M+</div><div class="stat-label">Innovations</div></div>
+            <div class="stat-item"><div class="stat-number">58K+</div><div class="stat-label">Villages</div></div>
+            <div class="stat-item"><div class="stat-number">240M</div><div class="stat-label">Citizens</div></div>
+            <div class="stat-item"><div class="stat-number">2047</div><div class="stat-label">Vision Year</div></div>
         </div>
     </section>
 
@@ -1657,30 +1195,22 @@
         </div>
         <div class="problem-grid">
             <div class="problem-card reveal">
-                <div class="problem-icon">
-                    <i class="fas fa-seedling"></i>
-                </div>
+                <div class="problem-icon"><i class="fas fa-seedling"></i></div>
                 <h3>The Farmer's Secret</h3>
                 <p>A farmer who discovered a technique to double crop yield. When he retires, decades of soil wisdom vanishes with him.</p>
             </div>
             <div class="problem-card reveal">
-                <div class="problem-icon">
-                    <i class="fas fa-hand-holding-heart"></i>
-                </div>
+                <div class="problem-icon"><i class="fas fa-hand-holding-heart"></i></div>
                 <h3>The SHG Leader</h3>
                 <p>A woman who built a successful Self-Help Group business model. Her entrepreneurial insights are never documented.</p>
             </div>
             <div class="problem-card reveal">
-                <div class="problem-icon">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                </div>
+                <div class="problem-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                 <h3>The Transformative Teacher</h3>
                 <p>A teacher who reduced school dropouts through innovative methods. His pedagogical breakthroughs are lost to time.</p>
             </div>
             <div class="problem-card reveal">
-                <div class="problem-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
+                <div class="problem-icon"><i class="fas fa-bolt"></i></div>
                 <h3>The Master Electrician</h3>
                 <p>An electrician who trained dozens of youth in skilled trades. His training methodology dies with his retirement.</p>
             </div>
@@ -1709,71 +1239,15 @@
                     <li><i class="fas fa-check-circle"></i> Archive village entrepreneurship models</li>
                 </ul>
                 <p style="font-style: italic; color: var(--gold); font-weight: 600;">
-                    <i class="fas fa-lightbulb" style="margin-right: 0.5rem;"></i>
-                    One villager's idea becomes a state asset.
+                    <i class="fas fa-lightbulb"></i> One villager's idea becomes a state asset.
                 </p>
             </div>
             <div class="storage-pyramid reveal">
-                <div class="pyramid-level level-1">
-                    <i class="fas fa-home"></i>
-                    Village Panchayat
-                </div>
-                <div class="pyramid-level level-2">
-                    <i class="fas fa-building"></i>
-                    District Knowledge Center
-                </div>
-                <div class="pyramid-level level-3">
-                    <i class="fas fa-server"></i>
-                    State Knowledge Cloud
-                </div>
-                <div class="pyramid-level level-4">
-                    <i class="fas fa-globe"></i>
-                    National Knowledge Grid
-                </div>
+                <div class="pyramid-level level-1"><i class="fas fa-home"></i> Village Panchayat</div>
+                <div class="pyramid-level level-2"><i class="fas fa-building"></i> District Knowledge Center</div>
+                <div class="pyramid-level level-3"><i class="fas fa-server"></i> State Knowledge Cloud</div>
+                <div class="pyramid-level level-4"><i class="fas fa-globe"></i> National Knowledge Grid</div>
                 <p class="pyramid-label">Four-Tier Storage Architecture</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- METHODOLOGY SECTION (NEW) -->
-    <section class="methodology-section" id="methodology">
-        <div class="section-header reveal">
-            <span class="section-tag">How It Works</span>
-            <h2 class="section-title">Systematic Knowledge Capture Framework</h2>
-            <p class="section-desc">
-                A proven, scalable methodology to identify, document, verify, and disseminate grassroots innovations.
-            </p>
-        </div>
-        <div class="methodology-grid">
-            <div class="method-step reveal">
-                <div class="method-number">1</div>
-                <h4>Identify</h4>
-                <p>Field coordinators partner with Panchayats to identify local knowledge holders through community nominations.</p>
-            </div>
-            <div class="method-step reveal">
-                <div class="method-number">2</div>
-                <h4>Document</h4>
-                <p>Multi-modal capture: video interviews, voice notes, photos, and written protocols in local languages.</p>
-            </div>
-            <div class="method-step reveal">
-                <div class="method-number">3</div>
-                <h4>Verify</h4>
-                <p>Peer validation by local experts and pilot testing to ensure reproducibility and practical value.</p>
-            </div>
-            <div class="method-step reveal">
-                <div class="method-number">4</div>
-                <h4>Digitize</h4>
-                <p>AI-powered transcription, translation, tagging, and indexing for searchable archival.</p>
-            </div>
-            <div class="method-step reveal">
-                <div class="method-number">5</div>
-                <h4>Disseminate</h4>
-                <p>Distribute via mobile apps, IVR systems, community screens, and printed guides in regional languages.</p>
-            </div>
-            <div class="method-step reveal">
-                <div class="method-number">6</div>
-                <h4>Iterate</h4>
-                <p>Feedback loops enable continuous improvement and adaptation of documented practices.</p>
             </div>
         </div>
     </section>
@@ -1793,48 +1267,22 @@
                 <h4>The Old Way</h4>
                 <p>A farmer in Prayagraj discovers a way to reduce water use by 40% through innovative drip irrigation combined with traditional mulching.</p>
                 <div class="comparison-flow">
-                    <div class="flow-step">
-                        <i class="fas fa-user"></i>
-                        <span>Only his family benefits</span>
-                    </div>
-                    <div class="flow-step">
-                        <i class="fas fa-times-circle" style="color: #ef4444;"></i>
-                        <span>Knowledge dies with him</span>
-                    </div>
-                    <div class="flow-step">
-                        <i class="fas fa-times-circle" style="color: #ef4444;"></i>
-                        <span>Neighboring farmers never learn</span>
-                    </div>
-                    <div class="flow-step">
-                        <i class="fas fa-times-circle" style="color: #ef4444;"></i>
-                        <span>State loses valuable innovation</span>
-                    </div>
+                    <div class="flow-step"><i class="fas fa-user"></i><span>Only his family benefits</span></div>
+                    <div class="flow-step"><i class="fas fa-times-circle" style="color:#ef4444"></i><span>Knowledge dies with him</span></div>
+                    <div class="flow-step"><i class="fas fa-times-circle" style="color:#ef4444"></i><span>Neighboring farmers never learn</span></div>
+                    <div class="flow-step"><i class="fas fa-times-circle" style="color:#ef4444"></i><span>State loses valuable innovation</span></div>
                 </div>
             </div>
-            <div class="vs-divider reveal">
-                <div class="vs-circle">VS</div>
-            </div>
+            <div class="vs-divider reveal"><div class="vs-circle">VS</div></div>
             <div class="comparison-card after reveal">
                 <span class="comparison-badge">With Knowledge Bank</span>
                 <h4>The New Way</h4>
                 <p>The same farmer's breakthrough is captured, processed, and distributed to every farmer in the state through AI-powered guides.</p>
                 <div class="comparison-flow">
-                    <div class="flow-step">
-                        <i class="fas fa-video"></i>
-                        <span>His method is recorded on video</span>
-                    </div>
-                    <div class="flow-step">
-                        <i class="fas fa-robot"></i>
-                        <span>AI converts into simple guides</span>
-                    </div>
-                    <div class="flow-step">
-                        <i class="fas fa-users"></i>
-                        <span>Every farmer in UP can access it</span>
-                    </div>
-                    <div class="flow-step">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Becomes a permanent state asset</span>
-                    </div>
+                    <div class="flow-step"><i class="fas fa-video"></i><span>His method is recorded on video</span></div>
+                    <div class="flow-step"><i class="fas fa-robot"></i><span>AI converts into simple guides</span></div>
+                    <div class="flow-step"><i class="fas fa-users"></i><span>Every farmer in UP can access it</span></div>
+                    <div class="flow-step"><i class="fas fa-chart-line"></i><span>Becomes a permanent state asset</span></div>
                 </div>
             </div>
         </div>
@@ -1852,23 +1300,17 @@
         </div>
         <div class="power-grid">
             <div class="power-card reveal">
-                <div class="power-icon">
-                    <i class="fas fa-road"></i>
-                </div>
+                <div class="power-icon"><i class="fas fa-road"></i></div>
                 <h3>Physical Infrastructure</h3>
                 <p>Roads connect villages to markets. Bridges connect communities. But knowledge highways connect generations.</p>
             </div>
             <div class="power-card reveal">
-                <div class="power-icon">
-                    <i class="fas fa-link"></i>
-                </div>
+                <div class="power-icon"><i class="fas fa-link"></i></div>
                 <h3>Knowledge Connects</h3>
                 <p>Roads connect villages. Knowledge connects generations. Every recorded innovation becomes a bridge to the future.</p>
             </div>
             <div class="power-card reveal">
-                <div class="power-icon">
-                    <i class="fas fa-brain"></i>
-                </div>
+                <div class="power-icon"><i class="fas fa-brain"></i></div>
                 <h3>Intellectual Capital</h3>
                 <p>This creates a new state asset: The Intellectual Capital of Rural India. Low-cost, scalable, and technology-driven.</p>
             </div>
@@ -1879,42 +1321,248 @@
         </div>
     </section>
 
-    <!-- TECH STACK SECTION (NEW) -->
-    <section class="tech-section" id="technology">
+    <!-- EXPANSION SECTION -->
+    <section class="expansion-section" id="expansion">
         <div class="section-header reveal">
-            <span class="section-tag">Technology Stack</span>
-            <h2 class="section-title">Built for Scale, Accessibility & Impact</h2>
+            <span class="section-tag">The Future</span>
+            <h2 class="section-title">5-Year Vision: UP Knowledge Grid 2047</h2>
             <p class="section-desc">
-                Leveraging modern, open-source technologies to ensure affordability, interoperability, and future-readiness.
+                After five years of systematic knowledge capture, Uttar Pradesh will possess 
+                an unprecedented repository of grassroots innovation.
             </p>
         </div>
-        <div class="tech-grid">
-            <div class="tech-card reveal">
-                <i class="fas fa-cloud"></i>
-                <h4>Cloud Infrastructure</h4>
-                <p>AWS/GovCloud with multi-region redundancy</p>
+        <div class="expansion-content">
+            <div class="expansion-chart reveal">
+                <canvas id="growthChart"></canvas>
             </div>
-            <div class="tech-card reveal">
-                <i class="fas fa-brain"></i>
-                <h4>AI/ML Engine</h4>
-                <p>NLP for vernacular processing, recommendation systems</p>
+            <div class="expansion-text reveal">
+                <h3>The Knowledge Dividend</h3>
+                <p>By 2032, Uttar Pradesh will have built the world's largest repository of grassroots innovation, searchable by AI and accessible to all.</p>
+                <ul class="milestone-list">
+                    <li><span class="milestone-year">2027</span><span class="milestone-desc">1 million local innovations documented</span></li>
+                    <li><span class="milestone-year">2028</span><span class="milestone-desc">Thousands of village business models archived</span></li>
+                    <li><span class="milestone-year">2029</span><span class="milestone-desc">AI-powered searchable database launched</span></li>
+                    <li><span class="milestone-year">2030</span><span class="milestone-desc">Students, researchers, and startups onboarded</span></li>
+                    <li><span class="milestone-year">2032</span><span class="milestone-desc">Full UP Knowledge Grid 2047 operational</span></li>
+                </ul>
             </div>
-            <div class="tech-card reveal">
-                <i class="fas fa-mobile-alt"></i>
-                <h4>Mobile First</h4>
-                <p>Progressive Web App + Offline-first architecture</p>
+        </div>
+    </section>
+
+    <!-- VISION SECTION -->
+    <section class="vision-section" id="vision">
+        <div class="vision-content reveal">
+            <span class="section-tag">The Big Vision</span>
+            <h2 class="vision-slogan">"Every citizen is a teacher.<br>Every village is a university."</h2>
+            <p class="vision-desc">
+                This transforms the narrative from welfare recipients to knowledge creators. 
+                It empowers citizens rather than treating them as beneficiaries. It is low-cost, 
+                scalable, patriotic, and technology-driven — the kind of idea that feels original, 
+                visionary, and larger than any typical government project.
+            </p>
+            <div class="vision-grid">
+                <div class="vision-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h4>Students</h4>
+                    <p>Access real-world case studies from villages</p>
+                </div>
+                <div class="vision-item">
+                    <i class="fas fa-microscope"></i>
+                    <h4>Researchers</h4>
+                    <p>Study grassroots innovation patterns</p>
+                </div>
+                <div class="vision-item">
+                    <i class="fas fa-rocket"></i>
+                    <h4>Startups</h4>
+                    <p>Build solutions on verified rural insights</p>
+                </div>
+                <div class="vision-item">
+                    <i class="fas fa-landmark"></i>
+                    <h4>Policymakers</h4>
+                    <p>Craft evidence-based rural policies</p>
+                </div>
             </div>
-            <div class="tech-card reveal">
-                <i class="fas fa-volume-up"></i>
-                <h4>Voice Interface</h4>
-                <p>IVR & voice bots for low-literacy accessibility</p>
+        </div>
+    </section>
+
+    <!-- IMPACT SECTION -->
+    <section class="impact-section">
+        <div class="section-header reveal">
+            <span class="section-tag">Why Leaders Will Notice</span>
+            <h2 class="section-title">A New Asset Class for the State</h2>
+            <p class="section-desc">
+                Most proposals ask for more money, more schemes, more subsidies. 
+                This proposal creates a new state asset that appreciates with time.
+            </p>
+        </div>
+        <div class="impact-grid">
+            <div class="impact-card reveal">
+                <div class="impact-icon"><i class="fas fa-coins"></i></div>
+                <div class="impact-text">
+                    <h4>Low-Cost Implementation</h4>
+                    <p>Requires minimal infrastructure. Leverages existing Panchayat buildings, mobile phones, and volunteer networks.</p>
+                </div>
             </div>
-            <div class="tech-card reveal">
-                <i class="fas fa-shield-alt"></i>
-                <h4>Data Security</h4>
-                <p>End-to-end encryption, consent management, GDPR-compliant</p>
+            <div class="impact-card reveal">
+                <div class="impact-icon"><i class="fas fa-expand-arrows-alt"></i></div>
+                <div class="impact-text">
+                    <h4>Infinitely Scalable</h4>
+                    <p>Starts with one village, scales to 58,000+ villages. Each addition makes the network more valuable.</p>
+                </div>
             </div>
-            <div class="tech-card reveal">
-                <i class="fas fa-project-diagram"></i>
-                <h4>Open APIs</h4>
-                <p>Interoperable with DI
+            <div class="impact-card reveal">
+                <div class="impact-icon"><i class="fas fa-flag"></i></div>
+                <div class="impact-text">
+                    <h4>Patriotic & Inclusive</h4>
+                    <p>Celebrates rural India's genius. Recognizes every citizen as a potential knowledge contributor.</p>
+                </div>
+            </div>
+            <div class="impact-card reveal">
+                <div class="impact-icon"><i class="fas fa-microchip"></i></div>
+                <div class="impact-text">
+                    <h4>Technology-Driven</h4>
+                    <p>AI-powered guides, voice-based access, multilingual support, and cloud-native architecture.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-content reveal">
+            <h2 class="cta-title">UP Knowledge Grid 2047</h2>
+            <p class="cta-desc">
+                Making Every Village a Knowledge Exporter. Join the movement to transform 
+                Uttar Pradesh's rural wisdom into India's greatest intellectual asset.
+            </p>
+            <div class="cta-buttons">
+                <a href="#concept" class="btn btn-glow"><i class="fas fa-rocket"></i> Launch the Initiative</a>
+                <a href="#" class="btn btn-outline" onclick="alert('Download the full proposal PDF coming soon!'); return false;">
+                    <i class="fas fa-file-download"></i> Download Proposal
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">
+            <i class="fas fa-university"></i>
+            <span>Jan-Dhan of Knowledge</span>
+        </div>
+        <p>Village Knowledge Bank Initiative | Empowering Rural India Through Knowledge Preservation</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.6;">
+            <i class="fas fa-heart" style="color: var(--saffron);"></i> Built with pride for Bharat
+        </p>
+        <div class="footer-creator">
+            <strong>Created by Kallol Chakrabarti</strong>, Global Independent Researcher<br>
+            ORCID: <a href="https://orcid.org/0009-0007-4971-8936">0009-0007-4971-8936</a> | 
+            Research Hub: <a href="https://helixoriginator.github.io/kallol-research-hub/">kallol-research-hub</a>
+        </div>
+    </footer>
+
+    <script>
+        // ===== PARTICLE ANIMATION =====
+        const particlesContainer = document.getElementById('particles');
+        const colors = ['rgba(255,153,51,0.3)', 'rgba(19,136,8,0.3)', 'rgba(197,160,89,0.3)'];
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            const size = Math.random() * 6 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // ===== NAVBAR SCROLL EFFECT =====
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        // ===== MOBILE NAV TOGGLE =====
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        navToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+
+        // ===== SCROLL REVEAL =====
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ===== GROWTH CHART =====
+        const ctx = document.getElementById('growthChart').getContext('2d');
+        if (ctx) {
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2027', '2028', '2029', '2030', '2031', '2032'],
+                    datasets: [{
+                        label: 'Documented Innovations (in thousands)',
+                        data: [200, 450, 700, 850, 950, 1000],
+                        borderColor: '#FF9933',
+                        backgroundColor: 'rgba(255, 153, 51, 0.1)',
+                        borderWidth: 3, fill: true, tension: 0.4,
+                        pointBackgroundColor: '#FF9933', pointBorderColor: '#fff',
+                        pointBorderWidth: 2, pointRadius: 6, pointHoverRadius: 8
+                    }, {
+                        label: 'Active Villages (in thousands)',
+                        data: [10, 20, 35, 45, 52, 58],
+                        borderColor: '#138808',
+                        backgroundColor: 'rgba(19, 136, 8, 0.1)',
+                        borderWidth: 3, fill: true, tension: 0.4,
+                        pointBackgroundColor: '#138808', pointBorderColor: '#fff',
+                        pointBorderWidth: 2, pointRadius: 6, pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: { font: { family: 'Inter', size: 12 }, usePointStyle: true, padding: 20, color: '#b8c1d1' }
+                        },
+                        tooltip: {
+                            backgroundColor: '#1a1a2e',
+                            titleFont: { family: 'Inter', size: 13 },
+                            bodyFont: { family: 'Inter', size: 12 },
+                            padding: 12, cornerRadius: 10, displayColors: true
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(255,255,255,0.05)', drawBorder: false },
+                            ticks: { font: { family: 'Inter', size: 11 }, color: '#7a86a1' }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { font: { family: 'Inter', size: 11 }, color: '#7a86a1' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // ===== SMOOTH SCROLL FOR NAV LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
